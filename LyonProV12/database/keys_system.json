@@ -1,0 +1,73 @@
+{
+    "config": {
+        "enabled": true,
+        "title": "Resgate sua Key",
+        "description": "Resgate uma key válida para liberar seu acesso.",
+        "channel_id": "1539061085800235110",
+        "panel_message_id": "1539349707174973461",
+        "button_label": "Resgatar Key",
+        "title_emoji": "1539071249739939840",
+        "button_emoji": "<:certo:1539071352290545754>",
+        "banner_url": "https://cdn.discordapp.com/attachments/1538665033376997446/1539061643030298696/Picsart_26-08-17_19-22-43-870.jpg?ex=6a84f25a&is=6a83a0da&hm=d2f3c5029733cafb16f7f67f7cdfd2d2a51ff1d88a6e6e9a267e5a0624cbb02f&",
+        "color": "",
+        "expired_message": "Esta key expirou e não pode mais ser resgatada.",
+        "button_color": "gray",
+        "log_channels": {
+            "all": "1539092890670596148"
+        }
+    },
+    "keys": [
+        {
+            "key": "LYON-407D37-E7B093",
+            "status": "redeemed",
+            "created_at": "2026-08-17T23:40:06+00:00",
+            "expires_at": "2026-09-16T23:40:06+00:00",
+            "created_by": "1432085153156563066",
+            "redeemed_by": "1432085153156563066",
+            "redeemed_at": "2026-08-17T23:40:20+00:00",
+            "role_id": ""
+        },
+        {
+            "key": "LYON-23279D-B7DF0B",
+            "status": "redeemed",
+            "created_at": "2026-08-18T00:03:02+00:00",
+            "expires_at": "2026-09-17T00:03:02+00:00",
+            "created_by": "1432085153156563066",
+            "role_id": "1491578407325143052",
+            "redeemed_by": "1432085153156563066",
+            "redeemed_at": "2026-08-18T00:03:12+00:00"
+        }
+    ],
+    "logs": [
+        {
+            "action": "create",
+            "quantity": 1,
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-17T23:40:06+00:00"
+        },
+        {
+            "action": "redeem",
+            "key": "LYON-407D37-E7B093",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-17T23:40:20+00:00"
+        },
+        {
+            "action": "migrate_keys_schema",
+            "at": "2026-08-17T23:56:12+00:00"
+        },
+        {
+            "action": "create",
+            "quantity": 1,
+            "role_id": "1491578407325143052",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T00:03:02+00:00"
+        },
+        {
+            "action": "redeem",
+            "key": "LYON-23279D-B7DF0B",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T00:03:12+00:00"
+        }
+    ],
+    "last_published_at": "2026-08-18T19:06:10+00:00"
+}

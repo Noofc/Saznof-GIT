@@ -1,0 +1,38 @@
+{
+    "enabled": true,
+    "panel_channel_id": "1509906112487489548",
+    "log_channel_id": "1538666924765085766",
+    "staff_role_id": "1509906034200678491",
+    "panel_title": "BATE PONTO",
+    "panel_description": "Controle de jornada da equipe com início, encerramento, cancelamento e logs automáticos.",
+    "active_sessions": {
+        "1463424951393587342": {
+            "user_id": "1463424951393587342",
+            "discord_name": "54z9",
+            "start_at": "2026-05-20T23:32:47",
+            "channel_id": "1501435840264671415"
+        }
+    },
+    "records": [
+        {
+            "user_id": "1463424951393587342",
+            "discord_name": "54z9",
+            "start_at": "2026-05-20T21:39:13",
+            "end_at": "2026-05-20T21:39:32",
+            "duration_seconds": 19,
+            "duration_label": "19s",
+            "status": "encerrado"
+        },
+        {
+            "user_id": "1227069241644154910",
+            "discord_name": "peixe_store12",
+            "start_at": "2026-05-20T21:48:53",
+            "end_at": "2026-05-20T21:49:04",
+            "duration_seconds": 11,
+            "duration_label": "11s",
+            "status": "encerrado"
+        }
+    ],
+    "last_published_at": "29/05/2026 10:02:37",
+    "panel_message_id": ""
+}

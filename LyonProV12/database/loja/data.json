@@ -1,0 +1,163 @@
+{
+    "carts": {
+        "1430709518827786302": {
+            "cart_id": "1430709518827786302",
+            "thread_id": 1430709518827786302,
+            "message_id": 1430709530072842301,
+            "channel_id": 1410763578046156934,
+            "guild_id": 1410763577224200194,
+            "user_id": 1303763805213298690,
+            "product_id": "2lQCBpgEer",
+            "campo_id": "NR9r0NrigL",
+            "quantity": 1,
+            "price_per_unit": 20.0,
+            "total_price": 20.0,
+            "payment_method": "pix",
+            "payment_data": {
+                "checkout_url": null,
+                "copy_code": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13036748856163047016",
+                "qr_url": null,
+                "payment_ids": {
+                    "payment_id": "130367488561"
+                },
+                "raw": {
+                    "status": "success",
+                    "payment_id": 130367488561,
+                    "copy_paste": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13036748856163047016",
+                    "qr_code_image_url": "/api/v1/qrcode?id=130367488561"
+                }
+            },
+            "status": "pending",
+            "created_at": 1761192534,
+            "updated_at": 1761192534
+        },
+        "1430714069115080709": {
+            "cart_id": "1430714069115080709",
+            "thread_id": 1430714069115080709,
+            "message_id": 1430714079437258823,
+            "channel_id": 1410763578046156934,
+            "guild_id": 1410763577224200194,
+            "user_id": 1336524642185121848,
+            "product_id": "2lQCBpgEer",
+            "campo_id": "NR9r0NrigL",
+            "quantity": 1,
+            "price_per_unit": 20.0,
+            "total_price": 20.0,
+            "payment_method": "pix",
+            "payment_data": {
+                "checkout_url": null,
+                "copy_code": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter1309533924326304D645",
+                "qr_url": null,
+                "payment_ids": {
+                    "payment_id": "130953392432"
+                },
+                "raw": {
+                    "status": "success",
+                    "payment_id": 130953392432,
+                    "copy_paste": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter1309533924326304D645",
+                    "qr_code_image_url": "/api/v1/qrcode?id=130953392432"
+                }
+            },
+            "status": "pending",
+            "created_at": 1761193618,
+            "updated_at": 1761193618
+        },
+        "1430743935562551476": {
+            "cart_id": "1430743935562551476",
+            "thread_id": 1430743935562551476,
+            "message_id": 1430743950297399326,
+            "channel_id": 1410763578046156934,
+            "guild_id": 1410763577224200194,
+            "user_id": 1303763805213298690,
+            "product_id": "2lQCBpgEer",
+            "campo_id": "NR9r0NrigL",
+            "quantity": 1,
+            "price_per_unit": 20.0,
+            "total_price": 20.0,
+            "payment_method": "pix",
+            "payment_data": {
+                "checkout_url": null,
+                "copy_code": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13037724983963045939",
+                "qr_url": null,
+                "payment_ids": {
+                    "payment_id": "130377249839"
+                },
+                "raw": {
+                    "status": "success",
+                    "payment_id": 130377249839,
+                    "copy_paste": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13037724983963045939",
+                    "qr_code_image_url": "/api/v1/qrcode?id=130377249839"
+                }
+            },
+            "status": "cancelled",
+            "created_at": 1761200740,
+            "updated_at": 1761200976,
+            "cancelled_at": 1761200976,
+            "cancelled_by": 1303763805213298690
+        },
+        "1430747280872574997": {
+            "cart_id": "1430747280872574997",
+            "thread_id": 1430747280872574997,
+            "message_id": 1430747295103586407,
+            "channel_id": 1410763578046156934,
+            "guild_id": 1410763577224200194,
+            "user_id": 1336524642185121848,
+            "product_id": "2lQCBpgEer",
+            "campo_id": "NR9r0NrigL",
+            "quantity": 1,
+            "price_per_unit": 20.0,
+            "total_price": 20.0,
+            "payment_method": "pix",
+            "payment_data": {
+                "checkout_url": null,
+                "copy_code": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13037947051963046CFB",
+                "qr_url": null,
+                "payment_ids": {
+                    "payment_id": "130379470519"
+                },
+                "raw": {
+                    "status": "success",
+                    "payment_id": 130379470519,
+                    "copy_paste": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter13037947051963046CFB",
+                    "qr_code_image_url": "/api/v1/qrcode?id=130379470519"
+                }
+            },
+            "status": "cancelled",
+            "created_at": 1761201538,
+            "updated_at": 1761201590,
+            "cancelled_at": 1761201590,
+            "cancelled_by": 1303763805213298690
+        },
+        "1430754058058076334": {
+            "cart_id": "1430754058058076334",
+            "thread_id": 1430754058058076334,
+            "message_id": 1430754072826347541,
+            "channel_id": 1410763578046156934,
+            "guild_id": 1410763577224200194,
+            "user_id": 1303763805213298690,
+            "product_id": "2lQCBpgEer",
+            "campo_id": "NR9r0NrigL",
+            "quantity": 1,
+            "price_per_unit": 20.0,
+            "total_price": 20.0,
+            "payment_method": "pix",
+            "payment_data": {
+                "checkout_url": null,
+                "copy_code": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter130964009208630476B0",
+                "qr_url": null,
+                "payment_ids": {
+                    "payment_id": "130964009208"
+                },
+                "raw": {
+                    "status": "success",
+                    "payment_id": 130964009208,
+                    "copy_paste": "00020126580014br.gov.bcb.pix0136796ed029-c7e0-403f-97b2-e00ef1746e72520400005303986540520.005802BR5916PW202506071703166009Sao Paulo62250521mpqrinter130964009208630476B0",
+                    "qr_code_image_url": "/api/v1/qrcode?id=130964009208"
+                }
+            },
+            "status": "pending",
+            "created_at": 1761203154,
+            "updated_at": 1761203154
+        }
+    }
+}

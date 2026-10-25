@@ -1,0 +1,21 @@
+{
+    "ativado": false,
+    "tokens": [],
+    "mensagem": {
+        "content": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nA Lyon Pro tem o prazer de apresentar uma nova referência em automação corporativa e gestão de comunidades para o Discord. Se você busca uma infraestrutura profissional, estável e de alta performance, conheça nossa solução integrada.\n\nDesenvolvemos uma aplicação multifuncional centralizada em um único bot robusto, projetado para unificar e otimizar todas as verticais do seu projeto ou negócio.\n\n📦 | RECURSOS INTEGRADOS DA NOSSA APLICAÇÃO:\n• 🏙️ Módulo FiveM — Scripts e ferramentas otimizadas para a infraestrutura da sua cidade.\n• 🎮 Módulo Roblox — Integrações e soluções exclusivas voltadas para a plataforma.\n• 📸 Módulo Instagram — Sincronização inteligente para alavancar e monitorar suas redes.\n• 💬 Gestão de Comunidade — Sistemas avançados de Boas-vindas, Sorteios e Controle de Permissões.\n• 📑 Validação por Imagem — Sistema automatizado de leitura de comprovantes para otimização de fluxos financeiros.\n\n🔥 | PRÉ-LANÇAMENTO EXCLUSIVO (DIA 30)\nA contagem regressiva começou! O lançamento oficial do nosso bot unificado ocorrerá no dia 30. Visando expandir nossa comunidade, estamos realizando um Evento de Invites Corporativo com benefícios exclusivos, incluindo licenças gratuitas e condições especiais de adesão para os primeiros colocados.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📌 Eleve o nível do seu gerenciamento hoje mesmo. Conecte-se à nossa central:\n🔗 Acesse o servidor oficial: https://discord.gg/2QtkUZZkqX\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+        "botoes": [
+            {
+                "id": "e63c04f2-2e5d-491a-8e6f-0b1027075823",
+                "label": "Clique aqui para ser redirecionado para o servidor",
+                "button": {
+                    "type": "url",
+                    "emoji": null,
+                    "url": "https://discord.gg/2QtkUZZkqX",
+                    "style": "url",
+                    "disabled": false
+                }
+            }
+        ],
+        "externalImage": "https://media.discordapp.net/attachments/1477680025557012563/1508527005878980639/Systen.png?ex=6a15dcc1&is=6a148b41&hm=340fe018349df6508cdc7c50155d6b798b5ae52ff86ade62e1c858e975087b51&=&format=webp&quality=lossless&width=1860&height=618"
+    }
+}

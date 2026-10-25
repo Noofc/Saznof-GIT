@@ -1,0 +1,5 @@
+{
+    "websocket": true,
+    "max_ws_retries": 3,
+    "http_fallback": false
+}

@@ -1,0 +1,2488 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lyon Gen - Dashboard</title>
+  <link rel="icon" type="image/png" href="/assets/Lyon.png?v=2" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d10;
+      --shell: #10141a;
+      --surface: #151a22;
+      --surface-2: #1b222c;
+      --surface-3: #232b37;
+      --line: #303947;
+      --text: #f5f7fb;
+      --muted: #aab3c0;
+      --soft: #d9e1eb;
+      --blue: #0082ff;
+      --cyan: #0082ff;
+      --green: #0082ff;
+      --red: #d65361;
+      --amber: #c79a38;
+      --focus: rgba(0, 130, 255, .26);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacLyonFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 13px;
+      color: var(--text);
+      font-weight: 700;
+      background: var(--surface-3);
+      cursor: pointer;
+    }
+
+    button:hover { border-color: #566173; }
+    button:disabled { cursor: not-allowed; opacity: .55; }
+    button.primary { background: var(--blue); border-color: var(--blue); }
+    button.success { background: var(--green); border-color: var(--green); }
+    button.danger { background: var(--red); border-color: var(--red); }
+    button.ghost { background: transparent; }
+
+    input, select, textarea {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #0f1319;
+      color: var(--text);
+      padding: 10px 12px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--focus);
+    }
+
+    textarea {
+      min-height: 172px;
+      resize: vertical;
+      line-height: 1.45;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .hidden { display: none !important; }
+
+    .auth {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(42, 169, 186, .18), transparent 30%),
+        radial-gradient(circle at 75% 12%, rgba(64, 126, 219, .16), transparent 28%),
+        var(--bg);
+    }
+
+    .auth-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 42px max(42px, 8vw);
+    }
+
+    .auth-hero {
+      width: min(520px, 100%);
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 28px;
+    }
+
+    .logo-panel {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(0, 130, 255, .28), transparent 42%),
+        linear-gradient(135deg, #030405, #0c1016 54%, #030405);
+    }
+
+    .logo-panel strong {
+      display: block;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1;
+    }
+
+    .logo-panel small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .auth-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: max-content;
+      margin: 0 0 18px;
+      border: 1px solid rgba(0, 130, 255, .38);
+      border-radius: 8px;
+      padding: 8px 12px 8px 8px;
+      color: #fff;
+      background: rgba(0, 130, 255, .1);
+      font-weight: 900;
+    }
+
+    .system-logo-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: #030405;
+      border: 1px solid rgba(0, 130, 255, .42);
+      color: #fff;
+      font-weight: 950;
+      letter-spacing: 0;
+      overflow: hidden;
+    }
+
+    .system-logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .system-logo-mark span { display: none; }
+    .system-logo-mark.fallback img { display: none; }
+    .system-logo-mark.fallback span {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1490ff, #005dc2);
+    }
+
+    .system-logo-mark.logo-xl {
+      width: 96px;
+      height: 96px;
+      border-radius: 18px;
+      box-shadow: 0 18px 42px rgba(0, 130, 255, .24);
+      font-size: 34px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+    }
+
+    .auth-copy h1 {
+      max-width: 660px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+    }
+
+    .auth-copy p {
+      max-width: 560px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .steps {
+      display: grid;
+      gap: 10px;
+      max-width: 620px;
+      margin-top: 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(21, 26, 34, .72);
+    }
+
+    .step span {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 800;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+
+    .step small {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .login-panel {
+      display: flex;
+      align-items: center;
+      border-left: 1px solid var(--line);
+      background: rgba(16, 20, 26, .86);
+      backdrop-filter: blur(12px);
+      padding: 28px;
+    }
+
+    .login-card {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: var(--surface);
+    }
+
+    .brand-line {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .login-card h2 {
+      margin-bottom: 4px;
+      font-size: 22px;
+    }
+
+    .login-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      background: var(--bg);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--line);
+      background: #0e1116;
+      padding: 18px 14px;
+    }
+
+    .side-brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 0 8px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+
+    .side-brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+    }
+
+    .side-brand strong { display: block; }
+    .side-brand small { color: var(--muted); }
+
+    .nav {
+      display: grid;
+      gap: 6px;
+    }
+
+    .nav button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .nav button.active {
+      color: var(--text);
+      border-color: var(--line);
+      background: var(--surface);
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding: 18px 22px;
+      background: #0f1217;
+    }
+
+    .topbar h1 {
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .topbar p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .content {
+      width: min(1220px, calc(100vw - 304px));
+      margin: 0 auto;
+      padding: 18px 22px 34px;
+    }
+
+    .page { display: none; }
+    .page.active { display: grid; gap: 14px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat, .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .stat {
+      min-height: 88px;
+      padding: 14px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 25px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, .75fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 16px;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .panel h2 {
+      font-size: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 170px;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      max-height: 460px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #12171e;
+    }
+
+    .item strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .item-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .pill, .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--soft);
+      background: var(--surface-2);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .badge.on { border-color: rgba(37, 166, 109, .5); color: #a9f3cf; }
+    .badge.off { border-color: rgba(214, 83, 97, .5); color: #ffc2c9; }
+    .badge.info { border-color: rgba(42, 169, 186, .55); color: #b7f2f8; }
+
+    .empty {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      color: var(--muted);
+      text-align: center;
+      background: #11151b;
+    }
+
+    .notice {
+      border-left: 3px solid var(--amber);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--soft);
+      background: #1b1914;
+      line-height: 1.55;
+    }
+
+    .tutorial {
+      display: grid;
+      gap: 9px;
+      color: var(--soft);
+    }
+
+    .tutorial p {
+      line-height: 1.55;
+      color: var(--soft);
+    }
+
+    pre {
+      min-height: 128px;
+      margin: 12px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #dce5ee;
+      background: #090c10;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, .62);
+    }
+
+    .modal {
+      width: min(520px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+    }
+
+    .modal-head, .modal-body, .modal-foot {
+      padding: 16px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-body { display: grid; gap: 12px; }
+    .modal-foot {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      display: grid;
+      gap: 8px;
+      width: min(360px, calc(100vw - 36px));
+      pointer-events: none;
+    }
+
+    .toast-item {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #151b23;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .34);
+    }
+
+    .toast-item.success { border-left-color: var(--green); }
+    .toast-item.error { border-left-color: var(--red); }
+
+    @media (max-width: 980px) {
+      .auth, .app, .grid-2, .stats { grid-template-columns: 1fr; }
+      .login-panel { border-left: 0; border-top: 1px solid var(--line); }
+      .sidebar { position: static; height: auto; }
+      .content { width: 100%; }
+      .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .topbar { grid-template-columns: 1fr; }
+      .top-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 620px) {
+      .auth-copy, .login-panel, .content, .topbar { padding: 14px; }
+      .form-grid, .settings-grid, .item { grid-template-columns: 1fr; }
+      .item-actions { justify-content: flex-start; }
+      button { width: 100%; }
+      .modal-foot { flex-direction: column-reverse; }
+    }
+
+    /* Visual polish */
+    :root {
+      --bg: #090a0b;
+      --shell: #0f1113;
+      --surface: #151718;
+      --surface-2: #1a1d1f;
+      --surface-3: #222629;
+      --line: #2b3033;
+      --line-soft: rgba(255, 255, 255, .075);
+      --text: #f7f8f8;
+      --muted: #a4adb2;
+      --soft: #d8dedf;
+      --blue: #0082ff;
+      --cyan: #0082ff;
+      --green: #0082ff;
+      --red: #df4d5d;
+      --amber: #d69d32;
+      --focus: rgba(0, 130, 255, .26);
+      --shadow: 0 22px 70px rgba(0, 0, 0, .38);
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .035), transparent 220px),
+        linear-gradient(135deg, #090a0b 0%, #101211 48%, #0a0d0d 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .026) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), transparent 78%);
+    }
+
+    button {
+      min-height: 40px;
+      border-color: var(--line-soft);
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--text);
+      background: linear-gradient(180deg, #272c30, #1d2124);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055);
+      transition: border-color .16s ease, background .16s ease, transform .16s ease, box-shadow .16s ease;
+    }
+
+    button:hover {
+      border-color: rgba(255, 255, 255, .18);
+      transform: translateY(-1px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07), 0 12px 28px rgba(0, 0, 0, .18);
+    }
+
+    button:active { transform: translateY(0); }
+    button.primary {
+      border-color: rgba(0, 130, 255, .74);
+      background: linear-gradient(180deg, #1490ff, #0067d6);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 34px rgba(0, 130, 255, .24);
+    }
+
+    button.success {
+      border-color: rgba(0, 130, 255, .7);
+      background: linear-gradient(180deg, #1490ff, #0067d6);
+    }
+
+    button.danger {
+      border-color: rgba(223, 77, 93, .7);
+      background: linear-gradient(180deg, #e45d6a, #b93747);
+    }
+
+    button.ghost {
+      background: rgba(255, 255, 255, .035);
+      box-shadow: none;
+    }
+
+    input, select, textarea {
+      min-height: 44px;
+      border-color: var(--line-soft);
+      border-radius: 8px;
+      background: #0d0f10;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+    }
+
+    input:disabled {
+      color: #bdc4c7;
+      background: #111416;
+    }
+
+    label {
+      color: #b4bdc0;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .auth {
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 440px);
+      background:
+        linear-gradient(90deg, rgba(9, 10, 11, .2), rgba(9, 10, 11, .82)),
+        linear-gradient(145deg, #0b0c0d, #111412 55%, #0b1010);
+    }
+
+    .auth-copy {
+      position: relative;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 52px max(44px, 7vw);
+    }
+
+    .auth-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto max(44px, 7vw) 32px max(44px, 7vw);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .18), transparent);
+    }
+
+    .auth-hero {
+      width: min(560px, 100%);
+      border-color: rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      filter: saturate(1.04) contrast(1.03);
+    }
+
+    .logo-panel {
+      position: relative;
+      isolation: isolate;
+      min-height: 184px;
+      overflow: hidden;
+      border-color: rgba(0, 130, 255, .3);
+      background:
+        linear-gradient(90deg, rgba(0, 130, 255, .16), transparent 42%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, .055) 0 1px, transparent 1px 30px),
+        linear-gradient(135deg, #050607, #10161d 58%, #050607);
+    }
+
+    .logo-panel::before,
+    .logo-panel::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .logo-panel::before {
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .logo-panel::after {
+      right: 24px;
+      bottom: 24px;
+      width: 86px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--blue);
+      box-shadow: 0 0 30px rgba(0, 130, 255, .6);
+    }
+
+    .logo-panel .system-logo-mark {
+      flex: 0 0 auto;
+      border-color: rgba(0, 130, 255, .66);
+      background: rgba(2, 4, 7, .92);
+    }
+
+    .logo-panel small {
+      color: #aeb8c1;
+      letter-spacing: .08em;
+    }
+
+    .auth-logo {
+      border-color: rgba(0, 130, 255, .48);
+      background: linear-gradient(180deg, rgba(0, 130, 255, .18), rgba(0, 130, 255, .07));
+      box-shadow: 0 16px 42px rgba(0, 130, 255, .16);
+    }
+
+    .auth-copy h1 {
+      max-width: 620px;
+      font-size: 52px;
+      line-height: 1.03;
+      font-weight: 850;
+    }
+
+    .auth-copy p {
+      max-width: 560px;
+      color: #c3cbce;
+    }
+
+    .steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 760px;
+      gap: 10px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 104px;
+      border-color: var(--line-soft);
+      background: rgba(18, 21, 22, .78);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+      overflow: hidden;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .step span {
+      color: #fff;
+      background: linear-gradient(180deg, #1490ff, #0067d6);
+    }
+
+    .step small { color: #aeb8bb; }
+
+    .login-panel {
+      border-left-color: rgba(255, 255, 255, .1);
+      background: rgba(10, 12, 13, .72);
+      box-shadow: -22px 0 80px rgba(0, 0, 0, .22);
+    }
+
+    .login-card, .modal, .panel, .stat {
+      border-color: var(--line-soft);
+      background: linear-gradient(180deg, rgba(26, 29, 31, .96), rgba(17, 19, 20, .96));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+    }
+
+    .login-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .login-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), transparent 78%);
+    }
+
+    .brand-mark {
+      color: #fff;
+      background: linear-gradient(180deg, #1490ff, #0067d6);
+      box-shadow: 0 14px 32px rgba(0, 130, 255, .22);
+    }
+
+    .brand-logo {
+      background: #030405;
+      border-color: rgba(0, 130, 255, .5);
+      box-shadow: 0 14px 32px rgba(0, 130, 255, .22);
+    }
+
+    .app {
+      grid-template-columns: 272px minmax(0, 1fr);
+      background: transparent;
+    }
+
+    .sidebar {
+      border-right-color: rgba(255, 255, 255, .09);
+      background: rgba(10, 12, 13, .92);
+      backdrop-filter: blur(14px);
+      padding: 18px 14px;
+    }
+
+    .side-brand {
+      padding: 2px 8px 18px;
+      border-bottom-color: rgba(255, 255, 255, .08);
+    }
+
+    .side-brand .system-logo-mark {
+      width: 38px;
+      height: 38px;
+    }
+
+    .side-brand img {
+      border-color: rgba(255, 255, 255, .12);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .22);
+      object-fit: contain;
+      background: #030405;
+    }
+
+    .nav button {
+      position: relative;
+      min-height: 42px;
+      justify-content: flex-start;
+      padding-left: 14px;
+      color: #aeb7ba;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .nav button:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, .045);
+      box-shadow: none;
+    }
+
+    .nav button.active {
+      border-color: rgba(255, 255, 255, .1);
+      color: var(--text);
+      background: linear-gradient(90deg, rgba(0, 130, 255, .2), rgba(255, 255, 255, .035));
+    }
+
+    .nav button.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      bottom: 9px;
+      width: 3px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom-color: rgba(255, 255, 255, .08);
+      background: rgba(12, 14, 15, .84);
+      backdrop-filter: blur(14px);
+      padding: 18px 24px;
+    }
+
+    .topbar h1 {
+      font-size: 25px;
+      font-weight: 820;
+    }
+
+    .content {
+      width: min(1260px, calc(100vw - 312px));
+      padding: 22px 24px 42px;
+    }
+
+    .page.active { gap: 16px; }
+
+    .stats {
+      gap: 12px;
+    }
+
+    .stat {
+      position: relative;
+      min-height: 104px;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .stat::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #29a0ff, var(--blue));
+    }
+
+    .stat span {
+      color: #aeb8bb;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .stat strong {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: 850;
+    }
+
+    .grid-2 {
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel-head {
+      min-height: 42px;
+      margin-bottom: 16px;
+    }
+
+    .panel h2 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .item {
+      border-color: var(--line-soft);
+      background: rgba(14, 16, 17, .78);
+      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+
+    .item:hover {
+      border-color: rgba(255, 255, 255, .13);
+      background: rgba(20, 23, 25, .9);
+      transform: translateY(-1px);
+    }
+
+    .item small { color: #a8b1b4; }
+
+    .pill, .badge {
+      border-color: rgba(255, 255, 255, .1);
+      border-radius: 999px;
+      color: #dce2e3;
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .badge.on {
+      border-color: rgba(0, 130, 255, .5);
+      color: #cfe8ff;
+      background: rgba(0, 130, 255, .12);
+    }
+
+    .badge.off {
+      border-color: rgba(223, 77, 93, .5);
+      color: #ffc5ca;
+      background: rgba(223, 77, 93, .1);
+    }
+
+    .badge.info {
+      border-color: rgba(0, 130, 255, .5);
+      color: #cfe8ff;
+      background: rgba(0, 130, 255, .12);
+    }
+
+    .empty {
+      border-color: rgba(255, 255, 255, .1);
+      color: #aab4b7;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .notice {
+      border-left-color: var(--amber);
+      color: #e3ded0;
+      background: rgba(214, 157, 50, .09);
+    }
+
+    .tutorial {
+      gap: 10px;
+    }
+
+    .tutorial p {
+      border: 1px solid rgba(255, 255, 255, .075);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    pre {
+      border-color: rgba(255, 255, 255, .095);
+      background: #090b0c;
+      color: #dfe8e8;
+    }
+
+    .modal-backdrop {
+      background: rgba(3, 4, 5, .74);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal {
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head, .modal-foot {
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .toast-item {
+      border-color: rgba(255, 255, 255, .1);
+      background: rgba(19, 22, 23, .96);
+      box-shadow: var(--shadow);
+    }
+
+    /* Pure black premium theme */
+    :root {
+      --bg: #000000;
+      --shell: #050505;
+      --surface: #080808;
+      --surface-2: #0d0d0d;
+      --surface-3: #141414;
+      --line: #202020;
+      --line-soft: rgba(255, 255, 255, .085);
+      --text: #ffffff;
+      --muted: #a8adb5;
+      --soft: #e7ebf0;
+      --blue: #0082ff;
+      --cyan: #0082ff;
+      --green: #0082ff;
+      --focus: rgba(0, 130, 255, .28);
+      --shadow: 0 24px 70px rgba(0, 0, 0, .72);
+    }
+
+    html,
+    body {
+      background: #000;
+    }
+
+    body::before {
+      display: none;
+    }
+
+    .auth,
+    .app,
+    .main {
+      background: #000;
+    }
+
+    .auth-copy {
+      background: #000;
+    }
+
+    .auth-copy::after {
+      background: linear-gradient(90deg, rgba(0, 130, 255, .5), rgba(255, 255, 255, .08), transparent);
+    }
+
+    .logo-panel {
+      border-color: rgba(0, 130, 255, .42);
+      background: #000;
+      box-shadow: 0 20px 70px rgba(0, 130, 255, .12), inset 0 1px 0 rgba(255, 255, 255, .05);
+    }
+
+    .logo-panel::before {
+      border-color: rgba(255, 255, 255, .14);
+    }
+
+    .auth-logo,
+    .login-card,
+    .modal,
+    .panel,
+    .stat,
+    .item,
+    .empty,
+    .notice {
+      background: #080808;
+      border-color: var(--line-soft);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+    }
+
+    .login-panel,
+    .sidebar,
+    .topbar {
+      background: #000;
+      border-color: var(--line-soft);
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    input,
+    select,
+    textarea,
+    pre {
+      background: #030303;
+      border-color: rgba(255, 255, 255, .1);
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025);
+    }
+
+    input:disabled {
+      background: #050505;
+      color: #b5bcc5;
+    }
+
+    button {
+      background: #111;
+      border-color: rgba(255, 255, 255, .12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .045);
+    }
+
+    button:hover {
+      background: #171717;
+      border-color: rgba(0, 130, 255, .45);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, .32);
+    }
+
+    button.primary,
+    button.success,
+    .brand-mark,
+    .step span {
+      background: #0082ff;
+      border-color: #0082ff;
+      box-shadow: 0 14px 34px rgba(0, 130, 255, .28);
+    }
+
+    .nav button {
+      color: #a9b0ba;
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .nav button:hover,
+    .nav button.active {
+      background: #080808;
+      border-color: rgba(0, 130, 255, .35);
+      color: #fff;
+      box-shadow: none;
+    }
+
+    .step {
+      background: #070707;
+    }
+
+    .step:hover,
+    .item:hover {
+      background: #0c0c0c;
+      border-color: rgba(0, 130, 255, .28);
+    }
+
+    .stat::before,
+    .step::before,
+    .nav button.active::before {
+      background: #0082ff;
+    }
+
+    .badge,
+    .pill {
+      background: #050505;
+      border-color: rgba(255, 255, 255, .1);
+    }
+
+    .toast-item {
+      background: #080808;
+      border-color: rgba(0, 130, 255, .32);
+      box-shadow: var(--shadow);
+    }
+
+    /* Elegant product finish */
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .auth {
+      grid-template-columns: minmax(0, 1fr) minmax(410px, 470px);
+    }
+
+    .auth-copy {
+      padding: 64px max(56px, 7vw);
+    }
+
+    .auth-copy h1 {
+      max-width: 680px;
+      margin-top: 4px;
+      font-size: clamp(46px, 5vw, 68px);
+      line-height: .96;
+      font-weight: 900;
+    }
+
+    .auth-copy p {
+      max-width: 620px;
+      color: #c9d0d8;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .auth-hero {
+      width: min(620px, 100%);
+      min-height: 178px;
+      margin-bottom: 22px;
+    }
+
+    .logo-panel {
+      align-items: flex-end;
+      gap: 22px;
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(0, 130, 255, .1), inset 0 1px 0 rgba(255, 255, 255, .06);
+    }
+
+    .logo-panel strong {
+      font-size: clamp(28px, 3.1vw, 44px);
+      font-weight: 900;
+    }
+
+    .logo-panel small {
+      margin-top: 10px;
+      color: #9ca6b2;
+      font-size: 11px;
+      letter-spacing: .14em;
+    }
+
+    .auth-logo {
+      min-height: 54px;
+      padding: 8px 16px 8px 8px;
+      color: #f8fbff;
+      background: #050505;
+    }
+
+    .system-logo-mark {
+      border-color: rgba(0, 130, 255, .58);
+      background: #000;
+      box-shadow: 0 12px 32px rgba(0, 130, 255, .16);
+    }
+
+    .steps {
+      max-width: 840px;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .step {
+      min-height: 118px;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      padding: 17px;
+      border-color: rgba(255, 255, 255, .095);
+    }
+
+    .step span {
+      width: 42px;
+      height: 42px;
+      font-size: 15px;
+    }
+
+    .step strong {
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .step small {
+      margin-top: 4px;
+      color: #b5bec8;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .login-panel {
+      justify-content: center;
+      padding: 38px;
+    }
+
+    .login-card {
+      max-width: 430px;
+      padding: 30px;
+      border-color: rgba(255, 255, 255, .11);
+      background: #070707;
+      box-shadow: 0 24px 72px rgba(0, 0, 0, .54);
+    }
+
+    .brand-line {
+      gap: 15px;
+      margin-bottom: 28px;
+    }
+
+    .login-card h2 {
+      font-size: 26px;
+      font-weight: 880;
+    }
+
+    .login-card p {
+      color: #aeb6c1;
+      font-size: 14px;
+    }
+
+    .login-form {
+      gap: 16px;
+    }
+
+    label {
+      margin-bottom: 8px;
+      color: #aeb6c1;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    input,
+    select,
+    textarea {
+      min-height: 50px;
+      padding: 12px 14px;
+      transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    textarea {
+      line-height: 1.55;
+    }
+
+    button {
+      min-height: 44px;
+      padding: 0 16px;
+      font-weight: 760;
+      transition: border-color .16s ease, background .16s ease, transform .16s ease, box-shadow .16s ease;
+    }
+
+    button.primary,
+    button.success {
+      color: #fff;
+      background: #0082ff;
+    }
+
+    button.primary:hover,
+    button.success:hover {
+      background: #1490ff;
+      box-shadow: 0 16px 38px rgba(0, 130, 255, .26);
+    }
+
+    .app {
+      grid-template-columns: 286px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      padding: 22px 16px;
+    }
+
+    .side-brand {
+      min-height: 64px;
+      gap: 12px;
+      padding: 0 8px 20px;
+    }
+
+    .side-brand strong {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .side-brand small {
+      font-size: 12px;
+    }
+
+    .nav {
+      gap: 7px;
+    }
+
+    .nav button {
+      min-height: 46px;
+      padding-left: 16px;
+    }
+
+    .topbar {
+      min-height: 84px;
+      padding: 22px 28px;
+    }
+
+    .topbar h1 {
+      font-size: 27px;
+      font-weight: 880;
+    }
+
+    .topbar p {
+      color: #aeb6c1;
+      font-size: 14px;
+    }
+
+    .content {
+      width: min(1280px, calc(100vw - 326px));
+      padding: 28px 28px 48px;
+    }
+
+    .page.active {
+      gap: 18px;
+    }
+
+    .stats {
+      gap: 14px;
+    }
+
+    .stat,
+    .panel {
+      border-color: rgba(255, 255, 255, .09);
+      background: #070707;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 18px;
+    }
+
+    .stat span {
+      color: #aeb6c1;
+      font-size: 11px;
+      letter-spacing: .05em;
+    }
+
+    .stat strong {
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .grid-2 {
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 20px;
+    }
+
+    .panel-head {
+      min-height: 46px;
+      margin-bottom: 18px;
+    }
+
+    .panel h2 {
+      font-size: 19px;
+      font-weight: 860;
+    }
+
+    .item {
+      min-height: 74px;
+      padding: 14px;
+    }
+
+    .item strong {
+      font-size: 15px;
+    }
+
+    .pill,
+    .badge {
+      min-height: 32px;
+      padding: 5px 11px;
+      color: #e9edf3;
+    }
+
+    .modal {
+      background: #070707;
+      border-color: rgba(255, 255, 255, .11);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .72);
+    }
+
+    @media (max-width: 1100px) {
+      .steps { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 980px) {
+      .auth, .app, .grid-2 { grid-template-columns: 1fr; }
+      .auth-copy { min-height: auto; padding: 40px 24px; }
+      .login-panel { box-shadow: none; }
+      .sidebar { position: static; height: auto; }
+      .topbar { position: static; }
+      .content { width: 100%; }
+    }
+
+    @media (max-width: 620px) {
+      .auth-copy h1 { font-size: 38px; }
+      .auth-copy p { font-size: 15px; }
+      .login-panel { padding: 18px; }
+      .logo-panel {
+        min-height: 176px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+      }
+      .system-logo-mark.logo-xl {
+        width: 78px;
+        height: 78px;
+        border-radius: 16px;
+      }
+      .step {
+        min-height: auto;
+        grid-template-columns: 38px minmax(0, 1fr);
+        padding: 14px;
+      }
+      .step span {
+        width: 38px;
+        height: 38px;
+      }
+      .stats { grid-template-columns: 1fr; }
+      .top-actions, .actions, .modal-foot { gap: 8px; }
+      .login-card, .panel { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <section id="authView" class="auth">
+    <div class="auth-copy">
+      <div class="auth-hero logo-panel">
+        <span class="system-logo-mark logo-xl" aria-label="Lyon Pro">
+          <img src="/assets/Lyon.png?v=2" alt="" draggable="false" onerror="this.parentElement.classList.add('fallback'); this.remove();" />
+          <span>SA</span>
+        </span>
+        <div>
+          <strong>Lyon Pro</strong>
+          <small>Lyon Gen Dashboard</small>
+        </div>
+      </div>
+      <div class="auth-logo">
+        <span class="system-logo-mark" aria-label="Lyon Pro">
+          <img src="/assets/Lyon.png?v=2" alt="" draggable="false" onerror="this.parentElement.classList.add('fallback'); this.remove();" />
+          <span>SA</span>
+        </span>
+        <span>Lyon Pro</span>
+      </div>
+      <h1>Lyon Gen</h1>
+      <p>Entre no painel, integre o Lyon Pro e gerencie projetos com estoque e gerações em um único dashboard.</p>
+      <div class="steps">
+        <div class="step"><span>1</span><div><strong>Faça login no site Lyon Gen</strong><small>Use seu nome de usuário para entrar no dashboard local.</small></div></div>
+        <div class="step"><span>2</span><div><strong>Acesse o Dashboard</strong><small>Clique em Integrar Lyon Pro para abrir o modal de vínculo.</small></div></div>
+        <div class="step"><span>3</span><div><strong>Gere o código no bot</strong><small>No bot, clique em Gerar Código no menu do Lyon Gen.</small></div></div>
+        <div class="step"><span>4</span><div><strong>Cole o código no modal</strong><small>Confirme o código no site para concluir a integração.</small></div></div>
+        <div class="step"><span>5</span><div><strong>Crie projetos e use a extensão</strong><small>Depois selecione o projeto no bot e use as funcionalidades.</small></div></div>
+      </div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-card">
+        <div class="brand-line">
+          <span class="system-logo-mark brand-logo" aria-label="Lyon Pro">
+            <img src="/assets/Lyon.png?v=2" alt="" draggable="false" onerror="this.parentElement.classList.add('fallback'); this.remove();" />
+            <span>SA</span>
+          </span>
+          <div>
+            <h2>Entrar</h2>
+            <p>Painel privado do Lyon Gen.</p>
+          </div>
+        </div>
+        <form id="loginForm" class="login-form">
+          <div>
+            <label for="loginName">Usuário</label>
+            <input id="loginName" placeholder="Seu nome" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" type="email" placeholder="voce@exemplo.com" autocomplete="email" />
+          </div>
+          <button class="primary" type="submit">Acessar Dashboard</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="appView" class="app hidden">
+    <aside class="sidebar">
+      <div class="side-brand">
+        <span class="system-logo-mark" aria-label="Lyon Pro">
+          <img src="/assets/Lyon.png?v=2" alt="" draggable="false" onerror="this.parentElement.classList.add('fallback'); this.remove();" />
+          <span>SA</span>
+        </span>
+        <div>
+          <strong>Lyon Gen</strong>
+          <small id="sessionUser">Dashboard</small>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Navegação principal">
+        <button class="active" data-nav="dashboard">Dashboard</button>
+        <button data-nav="projects">Projetos</button>
+        <button data-nav="stock">Estoque</button>
+        <button data-nav="generate">Gerar</button>
+        <button data-nav="integration">Integração</button>
+        <button data-nav="settings">Configurações</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Visão geral do seu Lyon Gen.</p>
+        </div>
+        <div class="top-actions">
+          <button class="primary" data-action="open-integrate">Integrar Lyon Pro</button>
+          <button data-action="open-project">Novo Projeto</button>
+          <button class="ghost" data-action="refresh">Atualizar</button>
+          <button class="ghost" data-action="logout">Sair</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="page active" data-page="dashboard">
+          <div class="stats">
+            <div class="stat"><span>Status</span><strong id="status">...</strong></div>
+            <div class="stat"><span>Projeto</span><strong id="projectKey">local</strong></div>
+            <div class="stat"><span>Serviços</span><strong id="serviceCount">0</strong></div>
+            <div class="stat"><span>Estoque</span><strong id="stockTotal">0</strong></div>
+          </div>
+
+          <div class="grid-2">
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Projetos</h2>
+                <button data-action="open-project">Novo Projeto</button>
+              </div>
+              <div id="dashboardProjects" class="list"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <h2>Lyon Pro</h2>
+                <span id="integrationBadge" class="badge info">Local</span>
+              </div>
+              <div class="tutorial">
+                <p><strong>Passo 1:</strong> Faça login no site Lyon Gen.</p>
+                <p><strong>Passo 2:</strong> Acesse o Dashboard e clique em Integrar Lyon Pro.</p>
+                <p><strong>Passo 3:</strong> No bot, clique em Gerar Código no menu acima.</p>
+                <p><strong>Passo 4:</strong> Copie o código gerado e cole no modal do site.</p>
+                <p><strong>Passo 5:</strong> Clique em confirmar no site e pronto.</p>
+                <p><strong>Após a integração:</strong> crie um projeto, selecione-o no bot e use a extensão.</p>
+              </div>
+              <div class="actions">
+                <button class="primary" data-action="open-integrate">Integrar Lyon Pro</button>
+              </div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Serviços recentes</h2>
+              <button data-nav="stock">Gerenciar estoque</button>
+            </div>
+            <div id="dashboardServices" class="list"></div>
+          </section>
+        </section>
+
+        <section class="page" data-page="projects">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Projetos</h2>
+              <button class="primary" data-action="open-project">Novo Projeto</button>
+            </div>
+            <div id="projects" class="list"></div>
+          </section>
+        </section>
+
+        <section class="page" data-page="stock">
+          <section class="panel">
+            <div class="panel-head"><h2>Estoque</h2></div>
+            <div class="form-grid">
+              <div>
+                <label for="serviceName">Serviço</label>
+                <input id="serviceName" list="serviceNames" placeholder="Netflix, Spotify, Steam" autocomplete="off" />
+                <datalist id="serviceNames"></datalist>
+              </div>
+              <div>
+                <label for="category">Categoria</label>
+                <select id="category">
+                  <option value="streaming">Streaming</option>
+                  <option value="gaming">Gaming</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+            </div>
+            <label for="stockItems">Itens de estoque</label>
+            <textarea id="stockItems" spellcheck="false" placeholder="email:senha&#10;email2:senha2"></textarea>
+            <div class="actions">
+              <button class="success" id="addStock">Adicionar estoque</button>
+              <button class="primary" id="createService">Salvar serviço</button>
+              <button class="ghost" id="clearStockForm">Limpar</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h2>Serviços</h2></div>
+            <div id="services" class="list"></div>
+          </section>
+        </section>
+
+        <section class="page" data-page="generate">
+          <section class="panel">
+            <div class="panel-head"><h2>Gerar</h2></div>
+            <div class="settings-grid">
+              <div>
+                <label for="generatedService">Serviço</label>
+                <select id="generatedService"></select>
+              </div>
+              <div>
+                <label for="generateQuantity">Quantidade</label>
+                <input id="generateQuantity" type="number" min="1" max="100" value="1" />
+              </div>
+            </div>
+            <div class="settings-grid" style="margin-top: 10px;">
+              <div>
+                <label for="quickCategory">Categoria</label>
+                <select id="quickCategory">
+                  <option value="">Auto</option>
+                  <option value="streaming">Streaming</option>
+                  <option value="gaming">Gaming</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+              <div>
+                <label for="copyHint">Resultado</label>
+                <input id="copyHint" value="Clique no resultado para copiar" disabled />
+              </div>
+            </div>
+            <div class="actions">
+              <button class="success" id="generate">Gerar contas</button>
+            </div>
+            <pre id="generatedOutput">Nenhuma geração feita nesta sessão.</pre>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><h2>Histórico</h2></div>
+            <div id="history" class="list"></div>
+          </section>
+        </section>
+
+        <section class="page" data-page="integration">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Integrar Lyon Pro</h2>
+              <span id="integrationBadge2" class="badge info">Local</span>
+            </div>
+            <div class="notice">Gere o código no bot, cole aqui e confirme. Depois clique em Já integrei no bot para atualizar o painel do Discord.</div>
+            <div class="settings-grid">
+              <div>
+                <label for="redeemCode">Código</label>
+                <input id="redeemCode" placeholder="SG-XXXXXXXX" />
+              </div>
+              <div>
+                <label for="redeemName">Nome do usuário</label>
+                <input id="redeemName" placeholder="Dono do bot" />
+              </div>
+            </div>
+            <div class="actions">
+              <button class="primary" id="redeem">Confirmar integração</button>
+            </div>
+          </section>
+        </section>
+
+        <section class="page" data-page="settings">
+          <section class="panel">
+            <div class="panel-head"><h2>Configurações</h2></div>
+            <div class="settings-grid">
+              <div>
+                <label for="maxGenerate">Máximo por geração</label>
+                <input id="maxGenerate" type="number" min="1" max="100" value="20" />
+              </div>
+              <div>
+                <label for="siteUrl">URL local</label>
+                <input id="siteUrl" disabled />
+              </div>
+            </div>
+            <div class="actions">
+              <button class="primary" id="saveSettings">Salvar limite</button>
+              <button id="toggleCommand">Alternar /gen</button>
+              <button id="toggle">Alternar Gen</button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </section>
+
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">Modal</h2>
+        <button class="ghost" data-action="close-modal">Fechar</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+      <div id="modalFoot" class="modal-foot"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const state = { data: null, busy: false, page: "dashboard" };
+    const SESSION_KEY = "loopgen.session";
+    const pageMeta = {
+      dashboard: ["Dashboard", "Visão geral do seu Lyon Gen."],
+      projects: ["Projetos", "Crie e selecione projetos do Lyon Gen."],
+      stock: ["Estoque", "Cadastre serviços e itens geráveis."],
+      generate: ["Gerar", "Teste gerações diretamente pelo site."],
+      integration: ["Integração", "Vincule o site ao Lyon Pro."],
+      settings: ["Configurações", "Controle limites e status da extensão."],
+    };
+
+    const busyButtons = [
+      "addStock", "createService", "clearStockForm", "saveSettings",
+      "toggleCommand", "toggle", "redeem", "generate"
+    ];
+
+    function session() {
+      try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); }
+      catch { return null; }
+    }
+
+    function saveSession(data) {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(data));
+    }
+
+    function setBusy(isBusy) {
+      state.busy = isBusy;
+      busyButtons.forEach((id) => {
+        const button = $(id);
+        if (button) button.disabled = isBusy;
+      });
+    }
+
+    function clean(value) {
+      return String(value ?? "").trim();
+    }
+
+    function hasHiddenSegment(value) {
+      return clean(value).replaceAll("\\", "/").split("/").some((part) => part.startsWith("."));
+    }
+
+    function safePublicValue(label, value) {
+      const current = clean(value);
+      if (!current) throw new Error(`Informe ${label}.`);
+      if (hasHiddenSegment(current)) {
+        throw new Error(`${label} não pode começar com ponto ou conter caminhos ocultos.`);
+      }
+      return current;
+    }
+
+    function safeStockItems(value) {
+      const lines = String(value ?? "").split(/\r?\n/).map(clean).filter(Boolean);
+      if (lines.some(hasHiddenSegment)) {
+        throw new Error("Itens começando com ponto ou apontando para arquivos ocultos foram bloqueados.");
+      }
+      return lines.join("\n");
+    }
+
+    function toast(message, type = "success") {
+      const item = document.createElement("div");
+      item.className = `toast-item ${type}`;
+      item.textContent = message;
+      $("toast").appendChild(item);
+      window.setTimeout(() => item.remove(), 3600);
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {
+        headers: { "Content-Type": "application/json" },
+        cache: "no-store",
+        credentials: "same-origin",
+        ...options,
+      });
+      const text = await response.text();
+      let data = {};
+      try { data = text ? JSON.parse(text) : {}; }
+      catch { data = { ok: false, message: text }; }
+      if (!response.ok || data.ok === false) {
+        throw new Error(data.message || data.reason || text || response.statusText);
+      }
+      return data;
+    }
+
+    function empty(text) {
+      const node = document.createElement("div");
+      node.className = "empty";
+      node.textContent = text;
+      return node;
+    }
+
+    function setPage(page) {
+      state.page = pageMeta[page] ? page : "dashboard";
+      document.querySelectorAll("[data-page]").forEach((node) => node.classList.toggle("active", node.dataset.page === state.page));
+      document.querySelectorAll("[data-nav]").forEach((node) => node.classList.toggle("active", node.dataset.nav === state.page));
+      $("pageTitle").textContent = pageMeta[state.page][0];
+      $("pageSubtitle").textContent = pageMeta[state.page][1];
+    }
+
+    function showAuth() {
+      $("authView").classList.remove("hidden");
+      $("appView").classList.add("hidden");
+    }
+
+    function showApp() {
+      const current = session();
+      $("sessionUser").textContent = current?.name || "Dashboard";
+      $("redeemName").value = current?.name || "";
+      $("authView").classList.add("hidden");
+      $("appView").classList.remove("hidden");
+      setPage(state.page);
+      load();
+    }
+
+    function integrationLabel(summary) {
+      const user = summary.integrated_user || "Local";
+      return user === "Local" ? "Local" : `Integrado: ${user}`;
+    }
+
+    function renderStatus(summary) {
+      const enabled = Boolean(summary.enabled);
+      const commandEnabled = Boolean(summary.command_enabled);
+      $("status").textContent = enabled ? "Ativo" : "Off";
+      $("projectKey").textContent = summary.project_key || "local";
+      $("serviceCount").textContent = summary.service_count ?? 0;
+      $("stockTotal").textContent = summary.stock_total ?? 0;
+      $("maxGenerate").value = summary.max_generate ?? 20;
+      $("siteUrl").value = summary.site_url || "http://127.0.0.1:8765";
+      $("toggle").textContent = enabled ? "Desativar Gen" : "Ativar Gen";
+      $("toggle").className = enabled ? "danger" : "success";
+      $("toggleCommand").textContent = commandEnabled ? "Desativar /gen" : "Ativar /gen";
+      $("toggleCommand").className = commandEnabled ? "danger" : "success";
+
+      const label = integrationLabel(summary);
+      $("integrationBadge").textContent = label;
+      $("integrationBadge2").textContent = label;
+      $("integrationBadge").className = `badge ${label === "Local" ? "info" : "on"}`;
+      $("integrationBadge2").className = `badge ${label === "Local" ? "info" : "on"}`;
+    }
+
+    function renderServiceOptions(services) {
+      const select = $("generatedService");
+      const datalist = $("serviceNames");
+      select.replaceChildren();
+      datalist.replaceChildren();
+
+      if (!services.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "Nenhum serviço";
+        select.appendChild(option);
+        return;
+      }
+
+      services.forEach((service) => {
+        const option = document.createElement("option");
+        option.value = service.id || service.name;
+        option.textContent = `${service.name} (${service.stock} em estoque)`;
+        option.disabled = Number(service.stock || 0) <= 0;
+        select.appendChild(option);
+
+        const dataOption = document.createElement("option");
+        dataOption.value = service.name || service.id;
+        datalist.appendChild(dataOption);
+      });
+    }
+
+    function serviceNode(service) {
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const body = document.createElement("div");
+      const title = document.createElement("strong");
+      title.textContent = service.name || service.id || "Serviço";
+      const meta = document.createElement("small");
+      meta.textContent = `${service.category || "outros"} | gerados: ${service.total_generated || 0}`;
+      body.append(title, meta);
+
+      const actions = document.createElement("div");
+      actions.className = "item-actions";
+
+      const stock = document.createElement("span");
+      stock.className = "pill";
+      stock.textContent = `${service.stock || 0} em estoque`;
+
+      const use = document.createElement("button");
+      use.textContent = "Usar";
+      use.dataset.action = "use-service";
+      use.dataset.service = service.id || service.name;
+      use.dataset.name = service.name || service.id;
+      use.dataset.category = service.category || "outros";
+
+      const remove = document.createElement("button");
+      remove.textContent = "Apagar";
+      remove.className = "danger";
+      remove.dataset.action = "delete-service";
+      remove.dataset.service = service.id || service.name;
+      remove.dataset.name = service.name || service.id;
+
+      actions.append(use, remove, stock);
+      item.append(body, actions);
+      return item;
+    }
+
+    function renderServices(services) {
+      ["services", "dashboardServices"].forEach((id) => {
+        const list = $(id);
+        list.replaceChildren();
+        if (!services.length) {
+          list.appendChild(empty("Nenhum serviço cadastrado."));
+          return;
+        }
+        services.slice(0, id === "dashboardServices" ? 5 : services.length).forEach((service) => list.appendChild(serviceNode(service)));
+      });
+    }
+
+    function projectNode(project) {
+      const selected = state.data?.summary?.project_key;
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const body = document.createElement("div");
+      const title = document.createElement("strong");
+      title.textContent = project.name || project.key || "Projeto";
+      const meta = document.createElement("small");
+      meta.textContent = `key: ${project.key} | uso: ${project.usage || 0}`;
+      body.append(title, meta);
+
+      const actions = document.createElement("div");
+      actions.className = "item-actions";
+
+      const badge = document.createElement("span");
+      badge.className = "pill";
+      badge.textContent = selected === project.key ? "Atual" : "Disponível";
+
+      const use = document.createElement("button");
+      use.textContent = "Usar";
+      use.disabled = selected === project.key;
+      use.dataset.action = "select-project";
+      use.dataset.key = project.key;
+
+      actions.append(use, badge);
+      item.append(body, actions);
+      return item;
+    }
+
+    function renderProjects(projects) {
+      ["projects", "dashboardProjects"].forEach((id) => {
+        const list = $(id);
+        list.replaceChildren();
+        if (!projects.length) {
+          list.appendChild(empty("Nenhum projeto cadastrado."));
+          return;
+        }
+        projects.forEach((project) => list.appendChild(projectNode(project)));
+      });
+    }
+
+    function renderHistory(history) {
+      const list = $("history");
+      list.replaceChildren();
+      if (!history.length) {
+        list.appendChild(empty("Nenhuma geração registrada."));
+        return;
+      }
+      history.forEach((entry) => {
+        const item = document.createElement("div");
+        item.className = "item";
+        const body = document.createElement("div");
+        const title = document.createElement("strong");
+        title.textContent = entry.service || "Serviço";
+        const meta = document.createElement("small");
+        meta.textContent = `${entry.quantity || 0} item(ns) | ${entry.source || "bot"}`;
+        body.append(title, meta);
+        const time = document.createElement("span");
+        time.className = "pill";
+        const date = entry.created_at ? new Date(entry.created_at) : null;
+        time.textContent = date && !Number.isNaN(date.valueOf()) ? date.toLocaleString() : "Sem data";
+        item.append(body, time);
+        list.appendChild(item);
+      });
+    }
+
+    async function load(showToast = false) {
+      setBusy(true);
+      try {
+        state.data = await api("/api/state");
+        renderStatus(state.data.summary || {});
+        renderServiceOptions(state.data.services || []);
+        renderServices(state.data.services || []);
+        renderProjects(state.data.projects || []);
+        renderHistory(state.data.history || []);
+        if (showToast) toast("Dados atualizados.");
+      } catch (error) {
+        toast(error.message || "Erro ao carregar o painel.", "error");
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    async function runAction(callback, successMessage) {
+      if (state.busy) return;
+      setBusy(true);
+      try {
+        await callback();
+        await load();
+        if (successMessage) toast(successMessage);
+      } catch (error) {
+        toast(error.message || "Operação falhou.", "error");
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    function closeModal() {
+      $("modalBackdrop").classList.add("hidden");
+      $("modalBody").replaceChildren();
+      $("modalFoot").replaceChildren();
+    }
+
+    function openIntegrateModal() {
+      $("modalTitle").textContent = "Integrar Lyon Pro";
+      $("modalBody").replaceChildren();
+      $("modalFoot").replaceChildren();
+
+      const codeWrap = document.createElement("div");
+      const codeLabel = document.createElement("label");
+      codeLabel.htmlFor = "modalCode";
+      codeLabel.textContent = "Código gerado no bot";
+      const codeInput = document.createElement("input");
+      codeInput.id = "modalCode";
+      codeInput.placeholder = "SG-XXXXXXXX";
+      codeWrap.append(codeLabel, codeInput);
+
+      const nameWrap = document.createElement("div");
+      const nameLabel = document.createElement("label");
+      nameLabel.htmlFor = "modalName";
+      nameLabel.textContent = "Usuário";
+      const nameInput = document.createElement("input");
+      nameInput.id = "modalName";
+      nameInput.value = session()?.name || "";
+      nameWrap.append(nameLabel, nameInput);
+
+      const note = document.createElement("div");
+      note.className = "notice";
+      note.textContent = "No bot: Lyon Gen > Gerar Código. Depois cole o código aqui e confirme.";
+
+      $("modalBody").append(note, codeWrap, nameWrap);
+
+      const cancel = document.createElement("button");
+      cancel.className = "ghost";
+      cancel.textContent = "Cancelar";
+      cancel.dataset.action = "close-modal";
+      const confirm = document.createElement("button");
+      confirm.className = "primary";
+      confirm.textContent = "Confirmar";
+      confirm.dataset.action = "confirm-integrate";
+      $("modalFoot").append(cancel, confirm);
+      $("modalBackdrop").classList.remove("hidden");
+      codeInput.focus();
+    }
+
+    function openProjectModal() {
+      $("modalTitle").textContent = "Novo Projeto";
+      $("modalBody").replaceChildren();
+      $("modalFoot").replaceChildren();
+
+      const wrap = document.createElement("div");
+      const label = document.createElement("label");
+      label.htmlFor = "modalProjectName";
+      label.textContent = "Nome do projeto";
+      const input = document.createElement("input");
+      input.id = "modalProjectName";
+      input.placeholder = "Meu Projeto";
+      wrap.append(label, input);
+      $("modalBody").append(wrap);
+
+      const cancel = document.createElement("button");
+      cancel.className = "ghost";
+      cancel.textContent = "Cancelar";
+      cancel.dataset.action = "close-modal";
+      const create = document.createElement("button");
+      create.className = "primary";
+      create.textContent = "Criar Projeto";
+      create.dataset.action = "confirm-project";
+      $("modalFoot").append(cancel, create);
+      $("modalBackdrop").classList.remove("hidden");
+      input.focus();
+    }
+
+    $("loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      let name = "";
+      try {
+        name = safePublicValue("seu usuário", $("loginName").value);
+      } catch (error) {
+        toast(error.message || "Informe seu usuário.", "error");
+        return;
+      }
+      saveSession({ name, email: clean($("loginEmail").value), at: Date.now() });
+      showApp();
+    });
+
+    document.addEventListener("click", (event) => {
+      const nav = event.target.closest("[data-nav]");
+      if (nav) {
+        setPage(nav.dataset.nav);
+        return;
+      }
+
+      const action = event.target.closest("[data-action]");
+      if (!action) return;
+
+      const kind = action.dataset.action;
+      if (kind === "refresh") return void load(true);
+      if (kind === "logout") {
+        localStorage.removeItem(SESSION_KEY);
+        showAuth();
+        return;
+      }
+      if (kind === "open-integrate") return void openIntegrateModal();
+      if (kind === "open-project") return void openProjectModal();
+      if (kind === "close-modal") return void closeModal();
+
+      if (kind === "confirm-integrate") {
+        return void runAction(async () => {
+          const code = safePublicValue("o código de vínculo", $("modalCode")?.value).toUpperCase();
+          const username = safePublicValue("o usuário", clean($("modalName")?.value) || session()?.name || "Site Local");
+          const result = await api("/api/redeem", {
+            method: "POST",
+            body: JSON.stringify({ code, username }),
+          });
+          $("redeemCode").value = "";
+          closeModal();
+          toast(result.message || "Pro integrado.");
+        });
+      }
+
+      if (kind === "confirm-project") {
+        return void runAction(async () => {
+          const name = safePublicValue("o nome do projeto", $("modalProjectName")?.value);
+          await api("/api/projects", { method: "POST", body: JSON.stringify({ name }) });
+          closeModal();
+        }, "Projeto criado.");
+      }
+
+      if (kind === "use-service") {
+        $("serviceName").value = action.dataset.name || action.dataset.service || "";
+        $("generatedService").value = action.dataset.service || "";
+        $("category").value = action.dataset.category || "outros";
+        $("quickCategory").value = action.dataset.category || "";
+        setPage("stock");
+        toast("Serviço carregado.");
+        return;
+      }
+
+      if (kind === "delete-service") {
+        const name = action.dataset.name || action.dataset.service;
+        if (!window.confirm(`Apagar o serviço "${name}" e todo o estoque dele?`)) return;
+        return void runAction(async () => {
+          await api("/api/services", {
+            method: "DELETE",
+            body: JSON.stringify({ service: action.dataset.service }),
+          });
+        }, "Serviço apagado.");
+      }
+
+      if (kind === "select-project") {
+        return void runAction(async () => {
+          await api("/api/projects/select", {
+            method: "POST",
+            body: JSON.stringify({ key: action.dataset.key }),
+          });
+        }, "Projeto selecionado.");
+      }
+    });
+
+    $("createService").addEventListener("click", () => runAction(async () => {
+      const name = safePublicValue("o nome do serviço", $("serviceName").value);
+      await api("/api/services", {
+        method: "POST",
+        body: JSON.stringify({ name, category: $("category").value }),
+      });
+    }, "Serviço salvo."));
+
+    $("addStock").addEventListener("click", () => runAction(async () => {
+      const service = safePublicValue("o nome do serviço", $("serviceName").value);
+      const items = safeStockItems($("stockItems").value);
+      if (!items) throw new Error("Cole pelo menos um item de estoque.");
+      const result = await api("/api/stock", {
+        method: "POST",
+        body: JSON.stringify({ service, category: $("category").value, items }),
+      });
+      $("stockItems").value = "";
+      toast(`${result.added || 0} item(ns) adicionados.`);
+    }));
+
+    $("clearStockForm").addEventListener("click", () => {
+      $("serviceName").value = "";
+      $("stockItems").value = "";
+      $("category").value = "streaming";
+    });
+
+    $("saveSettings").addEventListener("click", () => runAction(async () => {
+      const max = Number($("maxGenerate").value || 20);
+      if (!Number.isFinite(max) || max < 1 || max > 100) {
+        throw new Error("O limite precisa ficar entre 1 e 100.");
+      }
+      await api("/api/settings", { method: "POST", body: JSON.stringify({ max_generate: max }) });
+    }, "Configurações salvas."));
+
+    $("toggleCommand").addEventListener("click", () => runAction(async () => {
+      await api("/api/settings", {
+        method: "POST",
+        body: JSON.stringify({ command_enabled: !state.data?.summary?.command_enabled }),
+      });
+    }, "Status do /gen alterado."));
+
+    $("toggle").addEventListener("click", () => runAction(async () => {
+      await api("/api/toggle", {
+        method: "POST",
+        body: JSON.stringify({ enabled: !state.data?.summary?.enabled }),
+      });
+    }, "Status do Gen alterado."));
+
+    $("redeem").addEventListener("click", () => runAction(async () => {
+      const code = safePublicValue("o código de vínculo", $("redeemCode").value).toUpperCase();
+      const username = safePublicValue("o nome do usuário", clean($("redeemName").value) || session()?.name || "Site Local");
+      const result = await api("/api/redeem", {
+        method: "POST",
+        body: JSON.stringify({ code, username }),
+      });
+      toast(result.message || "Código vinculado.");
+    }));
+
+    $("generatedService").addEventListener("change", () => {
+      const service = (state.data?.services || []).find((item) => item.id === $("generatedService").value);
+      if (service) $("quickCategory").value = service.category || "";
+    });
+
+    $("generate").addEventListener("click", () => runAction(async () => {
+      const service = safePublicValue("o serviço", $("generatedService").value);
+      const quantity = Number($("generateQuantity").value || 1);
+      if (!Number.isFinite(quantity) || quantity < 1) throw new Error("Informe uma quantidade válida.");
+      const result = await api("/api/generate", {
+        method: "POST",
+        body: JSON.stringify({ service, quantity, category: $("quickCategory").value || undefined }),
+      });
+      $("generatedOutput").textContent = (result.items || []).join("\n") || "Nada foi gerado.";
+    }, "Geração concluída."));
+
+    $("generatedOutput").addEventListener("click", async () => {
+      const text = $("generatedOutput").textContent || "";
+      if (!text || text.startsWith("Nenhuma")) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        toast("Geração copiada.");
+      } catch {
+        toast("Não foi possível copiar automaticamente.", "error");
+      }
+    });
+
+    if (session()) showApp();
+    else showAuth();
+  </script>
+</body>
+</html>

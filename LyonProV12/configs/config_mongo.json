@@ -1,0 +1,8 @@
+{
+    "driver": "mongodb",
+    "mongoURL": "",
+    "databaseName": "",
+    "collectionName": "documents",
+    "serverSelectionTimeoutMS": 5000,
+    "legacySqliteDisabled": true
+}

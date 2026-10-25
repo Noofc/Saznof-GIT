@@ -1,0 +1,48 @@
+{
+    "enabled": true,
+    "integrated_user": "Thiago henrike",
+    "integrated_user_id": null,
+    "project_key": "local",
+    "settings": {
+        "site_url": "http://127.0.0.1:8765",
+        "site_host": "127.0.0.1",
+        "site_port": 8765,
+        "site_autostart": true,
+        "max_generate": 20,
+        "command_enabled": false
+    },
+    "projects": {
+        "local": {
+            "key": "local",
+            "name": "Projeto Local",
+            "usage": 0,
+            "created_at": "2026-05-19T18:54:27.763200+00:00"
+        }
+    },
+    "services": {},
+    "pending_codes": {
+        "SG-WQ54SBNU": {
+            "code": "SG-WQ54SBNU",
+            "bot_id": "1500570483354239170",
+            "created_by": "1463424951393587342",
+            "redeemed": false,
+            "created_at": "2026-05-19T18:55:18.626258+00:00"
+        },
+        "SG-PJB6VT6": {
+            "code": "SG-PJB6VT6",
+            "bot_id": "1500570483354239170",
+            "created_by": "1463424951393587342",
+            "redeemed": true,
+            "created_at": "2026-05-19T19:22:10.631511+00:00",
+            "redeemed_at": "2026-05-19T19:22:39.914142+00:00",
+            "username": "Thiago henrike",
+            "user_id": ""
+        }
+    },
+    "history": [],
+    "livestock": {
+        "accepted_warning": true,
+        "dm_notifications": false,
+        "products": {}
+    }
+}

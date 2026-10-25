@@ -1,0 +1,69 @@
+{
+    "enabled": true,
+    "city_name": "SYSTEM PRO",
+    "server_endpoint": "",
+    "join_url": "",
+    "panel_channel_id": "1509906103427661888",
+    "log_channel_id": "1538666922042986566",
+    "staff_role_id": "1509906041330991267",
+    "whitelist_role_id": "1509906041993953373",
+    "panel_title": "PLANO FIVEM - SYSTEM PRO",
+    "panel_description": "OPERAÇÃO DE CIDADE EFICIENTE E ESCALÁVEL\n\nPadronize processos, reduza ruído operacional e entregue mais consistência para staff e jogadores.\n\nSISTEMAS INCLUSOS\nWhitelist + Painel • Notificações + Logs + Moderação\n\nSISTEMAS\nWHITELIST E CADASTRO\nFluxo de entrada inteligente. Dados organizados e critérios revisáveis.\n\nPAINEL DO GESTOR\nIndicadores essenciais e visão operacional. Alertas e acompanhamento do time.\n\nNOTIFICAÇÕES E LOGS\nEventos críticos com registro claro. Histórico auditável e fácil de consultar.",
+    "linked_ids": {},
+    "whitelist": {},
+    "last_published_at": "29/05/2026 10:02:37",
+    "last_checked_at": null,
+    "cache": {
+        "online": 0,
+        "max": 0,
+        "hostname": "",
+        "players": [],
+        "error": ""
+    },
+    "factions": {},
+    "faction_requests": {},
+    "recruitment_requests": {},
+    "staff_sessions": {},
+    "staff_time_records": [],
+    "blacklist": {},
+    "punishments": [],
+    "audit_logs": [
+        {
+            "type": "structure_created",
+            "target": "1415020087328374964",
+            "actor_id": "1463424951393587342",
+            "actor_name": "54z9",
+            "details": {
+                "channels": 8,
+                "roles": 2
+            },
+            "created_at": "2026-05-27T03:07:18",
+            "created_ts": 1779862038
+        }
+    ],
+    "alerts": {
+        "server_down": true,
+        "server_full_percent": 90,
+        "pending_whitelist_limit": 5
+    },
+    "auto_setup": {
+        "separator": "╺╸",
+        "category_name": "╺╸ FiveM",
+        "logs_category_name": "╺╸ Logs FiveM",
+        "staff_role_name": "FiveM Staff",
+        "whitelist_role_name": "Cidadão"
+    },
+    "last_alerts": {},
+    "whitelist_channel_id": "1509031541924433931",
+    "factions_channel_id": "1509031543170138192",
+    "recruitment_channel_id": "1509031544386355281",
+    "staff_point_channel_id": "1509031545560629319",
+    "last_structure_at": "2026-05-27T03:07:18",
+    "panel_message_id": "",
+    "status_panel_channel_id": "",
+    "status_panel_message_id": "",
+    "staff_panel_channel_id": "",
+    "staff_panel_message_id": "",
+    "last_status_panel_update": null,
+    "last_staff_panel_update": null
+}

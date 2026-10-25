@@ -1,0 +1,30 @@
+{
+    "enabled": true,
+    "integrated_user": "Local",
+    "integrated_user_id": null,
+    "project_key": "local",
+    "settings": {
+        "site_url": "http://127.0.0.1:8765",
+        "site_host": "127.0.0.1",
+        "site_port": 8765,
+        "site_autostart": true,
+        "max_generate": 20,
+        "command_enabled": false
+    },
+    "projects": {
+        "local": {
+            "key": "local",
+            "name": "Projeto Local",
+            "usage": 0,
+            "created_at": "2026-08-15T21:16:32.245976+00:00"
+        }
+    },
+    "services": {},
+    "pending_codes": {},
+    "history": [],
+    "livestock": {
+        "accepted_warning": true,
+        "dm_notifications": false,
+        "products": {}
+    }
+}

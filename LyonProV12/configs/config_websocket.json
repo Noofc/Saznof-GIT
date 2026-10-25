@@ -1,0 +1,14 @@
+{
+    "websocket_cloud": {
+        "server_url": "https://lyon.phanomcloud.online",
+        "http_url": "https://lyon.phanomcloud.online",
+        "reconnect_interval": 5,
+        "auto_start": true,
+        "jwt_secret": "Lyon_secret_key_2026_secure_token_32bytes_minimum"
+    },
+    "websocket_manager": {
+        "server_url": "https://lyon.phanomcloud.online",
+        "reconnect_interval": 5,
+        "auto_start": true
+    }
+}

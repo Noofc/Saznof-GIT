@@ -1,0 +1,45 @@
+{
+    "systems": {
+        "engagement": {
+            "enabled": true,
+            "title": "Sistema de Engajamento",
+            "description": "Clique no botão abaixo para registrar sua participação no engajamento.",
+            "link_url": "",
+            "button_label": "Registrar Engajamento",
+            "channel_id": "1509906090177986671",
+            "clicks": 0,
+            "users": {},
+            "last_published_at": "2026-05-22T03:11:49",
+            "last_clicked_at": null,
+            "posts": []
+        },
+        "instagram": {
+            "enabled": true,
+            "title": "Instagram da Comunidade",
+            "description": "Compartilhe fotos e vídeos com a comunidade. Envie uma mídia no canal ou use o botão para publicar no feed.",
+            "link_url": "",
+            "button_label": "Abrir Instagram",
+            "channel_id": "1509906102618423416",
+            "clicks": 4,
+            "users": {
+                "1463424951393587342": 2
+            },
+            "last_published_at": "2026-08-14T22:26:09",
+            "last_clicked_at": "2026-08-14T22:26:31",
+            "posts": []
+        },
+        "fivem": {
+            "enabled": true,
+            "title": "FiveM",
+            "description": "Entre no servidor FiveM configurado e registre seu acesso.",
+            "link_url": "",
+            "button_label": "Entrar no FiveM",
+            "channel_id": "",
+            "clicks": 0,
+            "users": {},
+            "last_published_at": null,
+            "last_clicked_at": null,
+            "posts": []
+        }
+    }
+}

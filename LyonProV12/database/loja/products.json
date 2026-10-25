@@ -1,0 +1,58 @@
+{
+    "2lQCBpgEer": {
+        "id": "2lQCBpgEer",
+        "name": "Discord Nitro",
+        "info": {
+            "description": "",
+            "banner": null,
+            "hex_color": null,
+            "delivery_type": "automatic",
+            "created_at": 1760920743,
+            "updated_at": 1760920754,
+            "purchasesIds": [],
+            "total_paid": 0
+        },
+        "campos": {
+            "NR9r0NrigL": {
+                "id": "NR9r0NrigL",
+                "name": "teste",
+                "price": 20.0,
+                "emoji": null,
+                "pre_description": "",
+                "description": "",
+                "category_id": null,
+                "created_at": 1761084966,
+                "updated_at": 1761093302,
+                "advanced": {},
+                "stock": {},
+                "cargos": {
+                    "adicionar": [],
+                    "remover": []
+                },
+                "condicoes": {
+                    "valorMin": null,
+                    "valorMax": null,
+                    "quantidadeMin": null,
+                    "quantidadeMax": null
+                }
+            }
+        },
+        "categorias": {},
+        "messages": [],
+        "cupons": {
+            "MM9HCTH91P": {
+                "id": "MM9HCTH91P",
+                "name": "teste",
+                "active": true,
+                "created_at": 1760922761,
+                "updated_at": 1761006737,
+                "expires_at": null,
+                "uses_count": 0,
+                "max_uses": null,
+                "min_cart": null,
+                "max_cart": null,
+                "percent": 80
+            }
+        }
+    }
+}

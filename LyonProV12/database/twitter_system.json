@@ -1,0 +1,210 @@
+{
+    "config": {
+        "enabled": true,
+        "approval_enabled": false,
+        "send_channel_id": "1540047560478294146",
+        "approval_channel_id": "",
+        "posts_channel_id": "1539760131640918026",
+        "logs_channel_id": "",
+        "staff_role_id": "",
+        "title": "Sistema Twitter/X",
+        "description": "Membros podem enviar tweets com texto e imagem opcional. A equipe pode aprovar antes da publicação.",
+        "title_emoji": "textc",
+        "button_label": "Enviar tweet",
+        "button_emoji": "textc",
+        "banner_url": "",
+        "thumbnail_enabled": false,
+        "posts": [
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "text": "67",
+                "image_url": "",
+                "created_at": "2026-08-19T20:57:56+00:00",
+                "likes": [
+                    "1432085153156563066",
+                    "1520029575634096248"
+                ],
+                "comments": [],
+                "id": "d5a91d1f5b"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "text": "<@1520029575634096248> rs",
+                "image_url": "",
+                "created_at": "2026-08-19T21:12:38+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "6eebf823e1"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Kkk",
+                "image_url": "",
+                "created_at": "2026-08-19T21:26:05+00:00",
+                "likes": [
+                    "1432085153156563066"
+                ],
+                "comments": [
+                    {
+                        "author_id": "1432085153156563066",
+                        "text": "Kkkk",
+                        "created_at": "2026-08-19T21:26:35+00:00"
+                    }
+                ],
+                "id": "c9799b8874"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "<:bollwhite:1539759340578414652>",
+                "image_url": "",
+                "created_at": "2026-08-19T22:16:39+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "c2ec2478e2"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Oi",
+                "image_url": "",
+                "created_at": "2026-08-19T22:17:28+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "cd7ea57b90"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "<:bollwhite:1539759340578414652>",
+                "image_url": "",
+                "created_at": "2026-08-19T22:16:39+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "c2ec2478e2"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Oi",
+                "image_url": "",
+                "created_at": "2026-08-20T17:16:38+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "1dae425166"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Oi",
+                "image_url": "",
+                "created_at": "2026-08-20T17:19:40+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "6ffb1095af"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Kaka",
+                "image_url": "",
+                "created_at": "2026-08-20T17:47:01+00:00",
+                "likes": [
+                    "1432085153156563066"
+                ],
+                "comments": [],
+                "id": "2d4fa6b5ea"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "Founder - Tavares",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Kk",
+                "image_url": "",
+                "created_at": "2026-08-20T17:55:24+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "b559789660"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "7'astro",
+                "author_handle": "@permaneceria.",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Kkkkkkkk",
+                "image_url": "",
+                "created_at": "2026-08-20T18:59:11+00:00",
+                "likes": [
+                    "1432085153156563066",
+                    "1475985213698998383"
+                ],
+                "comments": [
+                    {
+                        "author_id": "1432085153156563066",
+                        "text": "Kkk",
+                        "created_at": "2026-08-20T18:59:40+00:00"
+                    },
+                    {
+                        "author_id": "1432085153156563066",
+                        "text": "Fn",
+                        "created_at": "2026-08-20T18:59:50+00:00"
+                    }
+                ],
+                "id": "c62c03104d"
+            },
+            {
+                "author_id": "1475985213698998383",
+                "author_name": "White'†",
+                "author_handle": "@whitezzxw",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1475985213698998383/2f5847d3d2146ffac462a3e7897d9836.png?size=1024",
+                "text": "Sou top",
+                "image_url": "",
+                "created_at": "2026-08-20T20:08:05+00:00",
+                "likes": [],
+                "comments": [],
+                "id": "1a916a9e9e"
+            },
+            {
+                "author_id": "1432085153156563066",
+                "author_name": "7'astro",
+                "author_handle": "@permaneceria.",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1432085153156563066/ebd26ff004eab272cd5178acb0517046.png?size=1024",
+                "text": "Top",
+                "image_url": "",
+                "created_at": "2026-08-20T20:21:23+00:00",
+                "likes": [
+                    "1432085153156563066"
+                ],
+                "comments": [],
+                "id": "30ae66618e"
+            },
+            {
+                "author_id": "1521338788293509190",
+                "author_name": "Matos'",
+                "author_handle": "@fe3a",
+                "avatar_url": "https://cdn.discordapp.com/avatars/1521338788293509190/ba602ddc0ae4dbec8f90f6af601fa801.png?size=1024",
+                "text": "New",
+                "image_url": "https://cdn.discordapp.com/attachments/1539760131640918026/1540500805050703923/411ab07ef15d61c313b0c6398e343223.jpg?ex=6a8a2ead&is=6a88dd2d&hm=ef2dcde10ced667d9eb2e15d32b964d91ab3653b2e199039d10b02eb89009df7&",
+                "created_at": "2026-08-21T23:20:23+00:00",
+                "likes": [
+                    "1521338788293509190"
+                ],
+                "comments": [],
+                "id": "5a77c4a555"
+            }
+        ],
+        "pending": [],
+        "published_count": 16,
+        "_selecting": "send_channel_id"
+    }
+}

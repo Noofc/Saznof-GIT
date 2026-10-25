@@ -1,0 +1,16 @@
+{
+    "botID": "",
+    "botToken": "",
+    "apiURL": "https://backend.zenityapplications.com.br",
+    "version": "Beta Tester",
+    "syncEmojis": true,
+    "saveConfig": false,
+    "startOnBackup": false,
+    "bot": {
+        "token": "",
+        "owner": "",
+        "id": "",
+        "perms": [],
+        "server": ""
+    }
+}

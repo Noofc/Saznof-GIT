@@ -1,0 +1,91 @@
+{
+    "panels": {
+        "FkmD4c2PJN": {
+            "name": "Atendimento",
+            "messages": {
+                "close_message": "Seu ticket `{channel_name}` foi fechado por {autor_mention}.",
+                "close_message_reason": "Seu ticket `{channel_name}` foi fechado por {autor_mention}.\n**Motivo:** {reason}",
+                "notify_message_staff_to_user": "Olá {user_mention}, você está sendo notificado sobre o seu ticket `{channel_name}`. A equipe de suporte está aguardando sua resposta.",
+                "notify_message_user_to_staff": "{user_mention} está solicitando sua atenção no ticket `{channel_name}`.",
+                "add_user_message": "{alvo_mention} foi adicionado a este ticket por {autor_mention}.",
+                "add_user_dm_message": "Olá {alvo_mention}, você foi adicionado ao ticket `{channel_name}` por {autor_mention}.",
+                "remove_user_message": "{alvo_mention} foi removido deste ticket por {autor_mention}.",
+                "remove_user_dm_message": "Olá {alvo_mention}, você foi removido do ticket `{channel_name}` por {autor_mention}.",
+                "assume_message": "{autor_mention} assumiu o atendimento deste ticket.",
+                "assume_dm_message": "Olá {user_mention}, o atendente {autor_mention} assumiu seu ticket `{channel_name}`.",
+                "transfer_message": "O ticket foi transferido por {autor_mention}.",
+                "create_call_message": "Uma call de voz foi iniciada para este ticket por {autor_mention}.",
+                "create_call_dm_message": "Olá! Uma call de voz foi criada para o seu ticket `{channel_name}`.",
+                "request_call_message": "O usuário {autor_mention} solicitou a criação de uma call."
+            },
+            "options": [
+                {
+                    "id": "65C5CjXPbV",
+                    "name": "Abrir Ticket",
+                    "description": "Clique aqui para tirar todas as suas dúvidas e resolver problemas.",
+                    "emoji": "<:atendimento:1423352180559052852>",
+                    "roles": {
+                        "mention": [
+                            1430862377619947530,
+                            1430862336951976009
+                        ],
+                        "allowed": [
+                            1430862893859078186,
+                            1430862474529472512,
+                            1430862436604579871
+                        ],
+                        "forbidden": [
+                            1426228427601481953
+                        ]
+                    },
+                    "open_message": {
+                        "style": "container",
+                        "container": {
+                            "content": "Seu ticket foi aberto e em breve um atendente irá te auxiliar",
+                            "color": ""
+                        }
+                    }
+                }
+            ],
+            "channel_id": 1429170715512275137,
+            "message_id": null,
+            "enabled": true,
+            "message_style": "container",
+            "has_pending_changes": true,
+            "container": {
+                "content": "**Instruções:**\n- Não fazemos parcerias.\n- Pode **haver atraso**, embora seja raro.\n- Abra um ticket para **dúvidas**, **suporte** ou **compras**.\n- Tenha senso crítico. Verifique se sua dúvida não possui a resposta exposta em algum lugar óbvio de nosso servidor. **Poupe nosso tempo, e o seu**.\n\n**Atendimento:**\n- Segunda a Sexta: 11:00 - 22:30"
+            },
+            "mode": "topic",
+            "office_hours": {
+                "enabled": true,
+                "start_time": "11:00",
+                "end_time": "22:30",
+                "off_days": [],
+                "message": ""
+            },
+            "preferences": {
+                "transcripts": {
+                    "send_on_close": true
+                },
+                "team_setup": {
+                    "disabled_buttons": [
+                        "manage_call"
+                    ]
+                },
+                "auto_close": {
+                    "user_left": {
+                        "enabled": true
+                    }
+                },
+                "member_setup": {
+                    "disabled_buttons": [
+                        "close",
+                        "notify",
+                        "request_call",
+                        "payment"
+                    ]
+                }
+            }
+        }
+    }
+}

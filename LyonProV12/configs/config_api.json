@@ -1,0 +1,7 @@
+{
+    "api": "https://payments.phanomcloud.online",
+    "cloud": "https://lyon.phanomcloud.online",
+    "transcripts": "https://payments.phanomcloud.online",
+    "ia": "https://payments.phanomcloud.online",
+    "backend": "https://payments.phanomcloud.online"
+}

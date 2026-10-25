@@ -1,0 +1,208 @@
+{
+    "config": {
+        "enabled": true,
+        "title": "Conversor de arquivos",
+        "description": "Converta, compacte, extraia ou aplique preto e branco aos seus arquivos.",
+        "title_emoji": "<:raio_StorM:1539071249739939840>",
+        "log_channel_id": "1539363097117065256",
+        "channel_id": "1539381889062666331",
+        "category_id": "1538664956487016599",
+        "private_channel_ids": {
+            "1520029575634096248": "1539382576798765147"
+        },
+        "options": {
+            "convert": {
+                "title": "Conversor",
+                "description": "Transforme seu vídeo em um GIF animado.",
+                "emoji": "reload"
+            },
+            "compress": {
+                "title": "Compressor",
+                "description": "Diminua o tamanho e otimize o seu GIF.",
+                "emoji": "cardbox"
+            },
+            "extract": {
+                "title": "Extrator",
+                "description": "Extraia o áudio de um vídeo em formato MP3.",
+                "emoji": "download"
+            },
+            "bw": {
+                "title": "Preto e branco",
+                "description": "Converta uma imagem para tons de preto e branco.",
+                "emoji": "palette"
+            }
+        },
+        "private_channel_meta": {},
+        "close_after_seconds": 50
+    },
+    "logs": [
+        {
+            "title": "Status do Conversor alterado",
+            "description": "O sistema foi desativado.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T19:59:23+00:00"
+        },
+        {
+            "title": "Status do Conversor alterado",
+            "description": "O sistema foi ativado.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T19:59:26+00:00"
+        },
+        {
+            "title": "Categoria privada do Conversor alterada",
+            "description": "Categoria definida para <#1538664956487016599>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T19:59:50+00:00"
+        },
+        {
+            "title": "Canal do Conversor alterado",
+            "description": "Canal de publicação definido para <#1539061085800235110>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:00:00+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539061085800235110>. Mensagem: `1539363281427239045`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:00:06+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1432085153156563066> executou **Preto e branco** com `db5cae30-9a88-11f1-9a4e-81f564c9d01d.png`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:00:35+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539061085800235110>. Mensagem: `1539364619691360336`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:05:25+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539061085800235110>. Mensagem: `1539366241041387532`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:11:52+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1432085153156563066> executou **Preto e branco** com `Picsart_26-08-16_20-53-23-488.png`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:13:19+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1539366515558584430> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:14:37+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1539367366171951204> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:16:28+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539061085800235110>. Mensagem: `1539373466472419429`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:40:35+00:00"
+        },
+        {
+            "title": "Falha no Conversor",
+            "description": "Falha ao processar `Novo_projeto_41_039C2BD.mp4`: `[Errno 2] No such file or directory: 'ffmpeg'`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:41:22+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1539373518553223288> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:52:23+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539061085800235110>. Mensagem: `1539376658467922030`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:53:16+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1432085153156563066> executou **Conversor** com `Novo_projeto_41_039C2BD.mp4`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T20:53:45+00:00"
+        },
+        {
+            "title": "Canal do Conversor alterado",
+            "description": "Canal de publicação definido para <#1539381889062666331>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T21:14:23+00:00"
+        },
+        {
+            "title": "Painel do Conversor publicado",
+            "description": "Painel publicado em <#1539381889062666331>. Mensagem: `1539382004938838046`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T21:14:30+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1539376676889427998> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-18T21:14:37+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1520029575634096248> executou **Compressor** com `logo_gif.gif`.",
+            "actor_id": "1520029575634096248",
+            "at": "2026-08-18T21:17:21+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1539382576798765147> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-19T00:51:20+00:00"
+        },
+        {
+            "title": "Tempo do Conversor alterado",
+            "description": "Canais concluídos ou inativos serão fechados após `50s`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-19T00:51:49+00:00"
+        },
+        {
+            "title": "Canal do Conversor fechado automaticamente",
+            "description": "O canal <#1539436731894472724> atingiu o tempo configurado (50s).",
+            "actor_id": "",
+            "at": "2026-08-19T00:52:58+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1432085153156563066> executou **Preto e branco** com `Picsart_26-08-16_21-18-05-215.png`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-19T18:58:15+00:00"
+        },
+        {
+            "title": "Canal do Conversor fechado automaticamente",
+            "description": "O canal <#1539710011561869397> atingiu o tempo configurado (50s).",
+            "actor_id": "",
+            "at": "2026-08-19T18:59:19+00:00"
+        },
+        {
+            "title": "Canal do Conversor fechado automaticamente",
+            "description": "O canal <#1539723469200293978> atingiu o tempo configurado (50s).",
+            "actor_id": "",
+            "at": "2026-08-19T19:52:41+00:00"
+        },
+        {
+            "title": "Operação do Conversor concluída",
+            "description": "Usuário <@1432085153156563066> executou **Preto e branco** com `Screenshot_2026-08-20-17-26-17-156_com.discord-edit.jpg`.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-21T02:04:42+00:00"
+        },
+        {
+            "title": "Sessão do Conversor encerrada",
+            "description": "Canal privado <#1540179747592609923> fechado por <@1432085153156563066>.",
+            "actor_id": "1432085153156563066",
+            "at": "2026-08-21T02:05:00+00:00"
+        }
+    ]
+}
